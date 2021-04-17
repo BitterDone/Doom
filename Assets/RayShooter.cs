@@ -20,7 +20,13 @@ public class RayShooter : MonoBehaviour
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit)) {
                 // Debug.Log("hit " + hit.point);
-                StartCoroutine(SphereIndicator(hit.point));
+                GameObject hitObject = hit.transform.gameObject;
+                ReactiveTarget target = hitObject.GetComponent<ReactiveTarget>();
+                if (target != null) {
+                    Debug.Log("target hit");
+                } else {
+                    StartCoroutine(SphereIndicator(hit.point));
+                }
             }
         }
     }
