@@ -15,4 +15,15 @@ public class ReactiveTarget : MonoBehaviour
     {
         
     }
+
+    public void ReactToHit() {
+        StartCoroutine(Die());
+    }
+
+    private IEnumerator Die() {
+        // look up "tweens" for animation movement
+        this.transform.Rotate(-75, 0, 0);
+        yield return new WaitForSeconds(1.5f);
+        Destroy(this.gameObject);
+    }
 }
