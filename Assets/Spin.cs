@@ -16,7 +16,7 @@ public class Spin : MonoBehaviour
         // save/update rotation for "set to y degrees"
         // remove +/- from = if "adjust by y degrees"
         rotation += Input.GetAxis("Mouse Y") * -1 * mouseSensitivity;
-        Debug.Log(rotation);
+        // Debug.Log(rotation);
 
         rotation  = Mathf.Clamp(rotation, minimumVert, maximumVert);
 

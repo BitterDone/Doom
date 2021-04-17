@@ -21,7 +21,7 @@ public class ReactiveTarget : MonoBehaviour
         if (behavior != null) {
             behavior.SetAlive(false);
         }
-        
+
         StartCoroutine(Die());
     }
 
@@ -30,5 +30,7 @@ public class ReactiveTarget : MonoBehaviour
         this.transform.Rotate(-75, 0, 0);
         yield return new WaitForSeconds(1.5f);
         Destroy(this.gameObject);
+        // Technically the object still exists after being destroyed
+        // Debug.Log("instance id: " + this.gameObject.GetInstanceID());
     }
 }
